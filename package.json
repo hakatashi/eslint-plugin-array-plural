@@ -1,11 +1,15 @@
 {
   "name": "eslint-plugin-array-plural",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "ESLint plugin to force usage of plural noun to name array variables",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "array",
+    "naming-convention",
+    "inflection",
+    "plural"
   ],
   "author": "Koki Takahashi",
   "main": "lib/index.js",

@@ -3,16 +3,12 @@
  * @author Koki Takahashi
  */
 
-'use strict';
-
 // ------------------------------------------------------------------------------
 // Requirements
 // ------------------------------------------------------------------------------
 
-let rule = require('../../../lib/rules/array-plural'),
-
-	RuleTester = require('eslint').RuleTester;
-
+const rule = require('../../../lib/rules/array-plural');
+const {RuleTester} = require('eslint');
 
 // ------------------------------------------------------------------------------
 // Tests

@@ -301,7 +301,7 @@
             }
         ],
         "object-shorthand": "error",
-        "one-var": "off",
+        "one-var": ["error", {"initialized": "never", "uninitialized": "always"}],
         "one-var-declaration-per-line": "error",
         "operator-assignment": "error",
         "operator-linebreak": "error",

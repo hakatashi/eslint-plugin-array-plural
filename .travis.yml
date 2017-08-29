@@ -1,0 +1,40 @@
+language: node_js
+node_js:
+  - 4
+  - 6
+  - node
+
+dist: trusty
+sudo: false
+
+# Install yarn
+# https://github.com/travis-ci/travis-ci/issues/6720#issuecomment-285981417
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
+        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+    packages:
+      - yarn
+
+# yarn upgrade will also install missing packages as well
+install:
+  # Yarn needs lockfile to exist even if --no-lockfile option is provided. So... fake lockfile *puke*
+  - touch yarn.lock
+  - yarn upgrade --no-lockfile
+
+script:
+  - yarn test
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+    - gh-pages
+
+notifications:
+  webhooks: http://webhook.hakatashi.com/travis

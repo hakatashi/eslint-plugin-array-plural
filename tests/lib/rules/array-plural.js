@@ -10,24 +10,40 @@
 const rule = require('../../../lib/rules/array-plural');
 const {RuleTester} = require('eslint');
 
+RuleTester.setDefaultConfig({
+	parserOptions: {
+		ecmaVersion: 6,
+		sourceType: 'module',
+	},
+});
+
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run('array-plural', rule, {
-
 	valid: [
-
-		// give me some code that won't trigger a warning
+		'var numbers = [0, 1, 2];',
+		'var strings = ["foo", "bar", "baz"]',
+		'var ids;\nids = [0, 1, 2];',
+		'let ultimateNumbers = [6, 7, 42];',
+		'const PREDEFINED_NUMBERS = [0, 1, 2];',
 	],
 
 	invalid: [
 		{
 			code: 'const number = [0, 1, 2];',
 			errors: [{
-				message: 'Fill me in.',
-				type: 'Me too',
+				message: 'Use plural noun to name array variable',
+				type: 'VariableDeclaration',
+			}],
+		},
+		{
+			code: 'const correctNumber = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'VariableDeclaration',
 			}],
 		},
 	],

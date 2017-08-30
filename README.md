@@ -6,14 +6,16 @@ ESLint plugin to force usage of plural noun to name array variables
 
 You'll first need to install [ESLint](http://eslint.org):
 
-```
-$ npm i eslint --save-dev
+```sh
+npm i eslint --save-dev
+yarn add eslint --dev
 ```
 
 Next, install `eslint-plugin-array-plural`:
 
-```
-$ npm install eslint-plugin-array-plural --save-dev
+```sh
+npm i eslint-plugin-array-plural --save-dev
+yarn add eslint-plugin-array-plural --dev
 ```
 
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-array-plural` globally.
@@ -36,16 +38,38 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "array-plural/rule-name": 2
+        "array-plural/array-plural": 2
     }
 }
 ```
 
-## Supported Rules
+## Rule Details
 
-* Fill in provided rules here
+Examples of **incorrect** code for this rule:
 
+```js
+const number = [0, 1, 2];
 
+const correctNumber = [0, 1, 2];
 
+const ULTIMATE_NUMBER = [0, 1, 2];
+```
 
+Examples of **correct** code for this rule:
 
+```js
+var numbers = [0, 1, 2];
+var strings = ["foo", "bar", "baz"];
+
+var ids;
+ids = [0, 1, 2];
+
+let ultimateNumbers = [6, 7, 42];
+const PREDEFINED_NUMBERS = [0, 1, 2];
+const {number} = {number: [0, 1, 2]};
+const crazyFish = ["black bass", "shark", "koi"];
+```
+
+## Options
+
+None yet.

@@ -25,12 +25,12 @@ const ruleTester = new RuleTester();
 ruleTester.run('array-plural', rule, {
 	valid: [
 		'var numbers = [0, 1, 2];',
-		'var strings = ["foo", "bar", "baz"]',
+		'var strings = ["foo", "bar", "baz"];',
 		'var ids;\nids = [0, 1, 2];',
 		'let ultimateNumbers = [6, 7, 42];',
 		'const PREDEFINED_NUMBERS = [0, 1, 2];',
 		'const {number} = {number: [0, 1, 2]};',
-		'const crazyFish = ["black bass", "shark", "koi"]',
+		'const crazyFish = ["black bass", "shark", "koi"];',
 	],
 
 	invalid: [
@@ -43,6 +43,13 @@ ruleTester.run('array-plural', rule, {
 		},
 		{
 			code: 'const correctNumber = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'VariableDeclarator',
+			}],
+		},
+		{
+			code: 'const ULTIMATE_NUMBER = [0, 1, 2];',
 			errors: [{
 				message: 'Use plural noun to name array variable',
 				type: 'VariableDeclarator',

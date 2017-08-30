@@ -1,5 +1,7 @@
 # eslint-plugin-array-plural
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hakatashi/eslint-plugin-array-plural.svg)](https://greenkeeper.io/)
+
 ESLint plugin to force usage of plural noun to name array variables
 
 ## Installation

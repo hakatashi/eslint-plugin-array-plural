@@ -30,6 +30,7 @@ ruleTester.run('array-plural', rule, {
 		'let ultimateNumbers = [6, 7, 42];',
 		'const PREDEFINED_NUMBERS = [0, 1, 2];',
 		'const {number} = {number: [0, 1, 2]};',
+		'const crazyFish = ["black bass", "shark", "koi"]',
 	],
 
 	invalid: [

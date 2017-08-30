@@ -24,6 +24,7 @@ install:
   - yarn upgrade --no-lockfile
 
 script:
+  - yarn lint
   - yarn test
 
 cache:

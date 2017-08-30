@@ -14,7 +14,8 @@
   "author": "Koki Takahashi",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests --recursive --compilers babel.js:babel-register"
+    "test": "mocha tests --recursive --compilers babel.js:babel-register",
+    "lint": "eslint ."
   },
   "dependencies": {
     "inflected": "^2.0.2",

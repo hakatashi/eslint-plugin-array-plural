@@ -50,6 +50,14 @@ ruleTester.run('array-plural', rule, {
 			code: 'if (number[0] === 0) foo();',
 			options: [{bracket: false}],
 		},
+		{
+			code: 'const allowedNumberGroup = [10, 20, 30];',
+			options: [{allow: ['group']}],
+		},
+		{
+			code: 'const ALLOWED_NUMBER_GROUP = [10, 20, 30];',
+			options: [{allow: ['group']}],
+		},
 	],
 
 	invalid: [
@@ -113,6 +121,22 @@ ruleTester.run('array-plural', rule, {
 		{
 			code: 'if (number[0] === 0) foo();',
 			options: [{bracket: true}],
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const subdividedNumbersArray = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
+			options: [{allow: []}],
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const groupedPeopleList = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie"]];',
+			options: [{allow: []}],
 			errors: [{
 				message: 'Use plural noun to name array variable',
 				type: 'Identifier',

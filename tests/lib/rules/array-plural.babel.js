@@ -31,6 +31,7 @@ ruleTester.run('array-plural', rule, {
 		'const PREDEFINED_NUMBERS = [0, 1, 2];',
 		'const {number} = {number: [0, 1, 2]};',
 		'window.number = [0, 1, 2];',
+		'let splattedCharacters = [..."foo", ..."bar"]',
 		'if (window.number[0] === 0) foo();',
 		'if (number["hoge"] === 0) foo();',
 		'if (number[foobar] === 0) foo();',
@@ -77,6 +78,13 @@ ruleTester.run('array-plural', rule, {
 		},
 		{
 			code: 'const ULTIMATE_NUMBER = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'let splattedCharacter = [..."foo", ..."bar"]',
 			errors: [{
 				message: 'Use plural noun to name array variable',
 				type: 'Identifier',

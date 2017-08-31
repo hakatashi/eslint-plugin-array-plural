@@ -1,5 +1,5 @@
 /**
- * @fileoverview Force usage of plural noun to name array variables
+ * @fileoverview Force usage of plural nouns to name array variables
  * @author Koki Takahashi
  */
 
@@ -53,11 +53,11 @@ ruleTester.run('array-plural', rule, {
 		},
 		{
 			code: 'const allowedNumberGroup = [10, 20, 30];',
-			options: [{allow: ['group']}],
+			options: [{allows: ['group']}],
 		},
 		{
 			code: 'const ALLOWED_NUMBER_GROUP = [10, 20, 30];',
-			options: [{allow: ['group']}],
+			options: [{allows: ['group']}],
 		},
 	],
 
@@ -65,56 +65,63 @@ ruleTester.run('array-plural', rule, {
 		{
 			code: 'const number = [0, 1, 2];',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
 			code: 'const correctNumber = [0, 1, 2];',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
 			code: 'const ULTIMATE_NUMBER = [0, 1, 2];',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
 			code: 'let splattedCharacter = [..."foo", ..."bar"]',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
 			code: 'let coordinary; coordinary = [0, 0];',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
-			code: 'const uppercaseArgument = arguments.map(a => a.toUpperCase())',
+			code: 'const uppercaseArgument = arguments.map(a => a.toUpperCase());',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
-			code: 'const fiveHappyNumber = new Array(5)',
+			code: 'const fiveHappyNumber = new Array(5);',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
-			code: 'const specialCharacter = Array.from("foobar")',
+			code: 'const specialCharacter = Array.from("foobar");',
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const numberarray = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
@@ -122,7 +129,7 @@ ruleTester.run('array-plural', rule, {
 			code: 'let someNumber = require("foobar"); someNumber[0];',
 			options: [{bracket: true}],
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
@@ -130,7 +137,7 @@ ruleTester.run('array-plural', rule, {
 			code: 'let someNumber = require("foobar"); someNumber[0b01];',
 			options: [{bracket: true}],
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
@@ -138,23 +145,23 @@ ruleTester.run('array-plural', rule, {
 			code: 'if (number[0] === 0) foo();',
 			options: [{bracket: true}],
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
 			code: 'const subdividedNumbersArray = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
-			options: [{allow: []}],
+			options: [{allows: []}],
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},
 		{
 			code: 'const groupedPeopleList = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie"]];',
-			options: [{allow: []}],
+			options: [{allows: []}],
 			errors: [{
-				message: 'Use plural noun to name array variable',
+				message: 'Use plural nouns to name array variable',
 				type: 'Identifier',
 			}],
 		},

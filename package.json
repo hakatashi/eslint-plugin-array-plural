@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-array-plural",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ESLint plugin to force usage of plural noun to name array variables",
   "keywords": [
     "eslint",

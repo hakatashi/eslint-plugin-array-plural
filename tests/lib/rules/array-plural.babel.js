@@ -30,57 +30,93 @@ ruleTester.run('array-plural', rule, {
 		'let ultimateNumbers = [6, 7, 42];',
 		'const PREDEFINED_NUMBERS = [0, 1, 2];',
 		'const {number} = {number: [0, 1, 2]};',
+		'window.number = [0, 1, 2];',
+		'if (window.number[0] === 0) foo();',
+		'if (number["hoge"] === 0) foo();',
+		'if (number[foobar] === 0) foo();',
 		'const crazyFish = ["black bass", "shark", "koi"];',
 		'const uppercaseArguments = arguments.map(a => a.toUpperCase());',
 		'const fiveHappyNumbers = new Array(5)',
 		'const specialCharacters = Array.from("foobar")',
 		'const subdividedNumbersArray = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
 		'const SUBDIVIDED_NUMBERS_ARRAY = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
-		'const groupedPeopleList = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie", "Christine"]];',
-		'const GROUPED_PEOPLE_LIST = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie", "Christine"]];',
+		'const groupedPeopleList = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie"]];',
+		'const GROUPED_PEOPLE_LIST = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie"]];',
+		{
+			code: 'let someNumber = require("foobar"); someNumber[0];',
+			options: [{bracket: false}],
+		},
+		{
+			code: 'if (number[0] === 0) foo();',
+			options: [{bracket: false}],
+		},
 	],
 
-	invalid: [{
-		code: 'const number = [0, 1, 2];',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}, {
-		code: 'const correctNumber = [0, 1, 2];',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}, {
-		code: 'const ULTIMATE_NUMBER = [0, 1, 2];',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}, {
-		code: 'let coordinary; coordinary = [0, 0];',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}, {
-		code: 'const uppercaseArgument = arguments.map(a => a.toUpperCase())',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}, {
-		code: 'const fiveHappyNumber = new Array(5)',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}, {
-		code: 'const specialCharacter = Array.from("foobar")',
-		errors: [{
-			message: 'Use plural noun to name array variable',
-			type: 'Identifier',
-		}],
-	}],
+	invalid: [
+		{
+			code: 'const number = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const correctNumber = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const ULTIMATE_NUMBER = [0, 1, 2];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'let coordinary; coordinary = [0, 0];',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const uppercaseArgument = arguments.map(a => a.toUpperCase())',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const fiveHappyNumber = new Array(5)',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'const specialCharacter = Array.from("foobar")',
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'let someNumber = require("foobar"); someNumber[0];',
+			options: [{bracket: true}],
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
+			code: 'if (number[0] === 0) foo();',
+			options: [{bracket: true}],
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+	],
 });

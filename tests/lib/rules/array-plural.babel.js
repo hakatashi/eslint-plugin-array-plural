@@ -127,6 +127,14 @@ ruleTester.run('array-plural', rule, {
 			}],
 		},
 		{
+			code: 'let someNumber = require("foobar"); someNumber[0b01];',
+			options: [{bracket: true}],
+			errors: [{
+				message: 'Use plural noun to name array variable',
+				type: 'Identifier',
+			}],
+		},
+		{
 			code: 'if (number[0] === 0) foo();',
 			options: [{bracket: true}],
 			errors: [{

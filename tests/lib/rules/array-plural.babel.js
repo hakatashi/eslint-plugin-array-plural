@@ -35,6 +35,9 @@ ruleTester.run('array-plural', rule, {
 		'const fiveHappyNumbers = new Array(5)',
 		'const specialCharacters = Array.from("foobar")',
 		'const subdividedNumbersArray = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
+		'const SUBDIVIDED_NUMBERS_ARRAY = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
+		'const groupedPeopleList = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie", "Christine"]];',
+		'const GROUPED_PEOPLE_LIST = [["Anna", "Alice"], ["Bob", "Becky"], ["Cassie", "Christine"]];',
 	],
 
 	invalid: [{

@@ -34,49 +34,50 @@ ruleTester.run('array-plural', rule, {
 		'const uppercaseArguments = arguments.map(a => a.toUpperCase());',
 		'const fiveHappyNumbers = new Array(5)',
 		'const specialCharacters = Array.from("foobar")',
+		'const subdividedNumbersArray = [[0, 3, 6, 9], [1, 4, 7], [2, 5, 8]];',
 	],
 
 	invalid: [{
 		code: 'const number = [0, 1, 2];',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'VariableDeclarator',
+			type: 'Identifier',
 		}],
 	}, {
 		code: 'const correctNumber = [0, 1, 2];',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'VariableDeclarator',
+			type: 'Identifier',
 		}],
 	}, {
 		code: 'const ULTIMATE_NUMBER = [0, 1, 2];',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'VariableDeclarator',
+			type: 'Identifier',
 		}],
 	}, {
 		code: 'let coordinary; coordinary = [0, 0];',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'AssignmentExpression',
+			type: 'Identifier',
 		}],
 	}, {
 		code: 'const uppercaseArgument = arguments.map(a => a.toUpperCase())',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'VariableDeclarator',
+			type: 'Identifier',
 		}],
 	}, {
 		code: 'const fiveHappyNumber = new Array(5)',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'VariableDeclarator',
+			type: 'Identifier',
 		}],
 	}, {
 		code: 'const specialCharacter = Array.from("foobar")',
 		errors: [{
 			message: 'Use plural noun to name array variable',
-			type: 'VariableDeclarator',
+			type: 'Identifier',
 		}],
 	}],
 });

@@ -1,34 +1,13 @@
 language: node_js
 node_js:
-  - 4
-  - 6
   - node
 
-dist: trusty
+dist: bionic
 sudo: false
 
-# Install yarn
-# https://github.com/travis-ci/travis-ci/issues/6720#issuecomment-285981417
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
-        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
-    packages:
-      - yarn
-
-install:
-  - yarn install
-  - yarn upgrade
-
 script:
-  - yarn lint
-  - yarn test
-
-cache:
-  yarn: true
-  directories:
-    - node_modules
+  - npm run lint
+  - npm test
 
 branches:
   except:

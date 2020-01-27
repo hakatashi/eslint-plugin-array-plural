@@ -7,8 +7,8 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-const rule = require('../../../lib/rules/array-plural');
 const {RuleTester} = require('eslint');
+const rule = require('../../../lib/rules/array-plural');
 
 RuleTester.setDefaultConfig({
 	parserOptions: {

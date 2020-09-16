@@ -18,7 +18,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "inflected": "^2.0.4",
+    "inflected": "^2.1.0",
     "no-case": "^3.0.3",
     "requireindex": "^1.2.0"
   },

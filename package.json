@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "inflected": "^2.0.4",
-    "no-case": "^3.0.3",
+    "no-case": "^3.0.4",
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
